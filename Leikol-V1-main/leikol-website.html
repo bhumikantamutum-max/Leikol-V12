@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leikol — Electronics &amp; Authorized MARG ERP Dealer, Manipur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F0E4;
+    --paper-2:#EAE2D0;
+    --white:#FFFCF5;
+    --ink:#23241d;
+    --ink-soft:#76735f;
+    --ink-deep:#1A1B14;
+    --stamp:#C1442D;
+    --teal:#1F7A6E;
+    --line:#DBD2BA;
+    --line-strong:#C8BC9C;
+    --radius:14px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  p{margin:0;}
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    font-weight:600;
+  }
+
+  a:focus-visible, button:focus-visible, input:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+  }
+
+  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .section{padding:clamp(60px,9vw,108px) 0;}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.74rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--stamp);
+    font-weight:500;
+    margin:0 0 14px;
+  }
+
+  .lede{
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    max-width:46ch;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.85rem;
+    letter-spacing:0.04em;
+    padding:13px 22px;
+    border-radius:999px;
+    border:1.5px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--stamp);color:var(--white);}
+  .btn-primary:hover{background:#A93621;}
+  .btn-outline{background:transparent;color:var(--ink);border-color:var(--line-strong);}
+  .btn-outline:hover{border-color:var(--ink);}
+  .btn-outline-light{background:transparent;color:var(--paper);border-color:rgba(245,240,228,0.35);}
+  .btn-outline-light:hover{border-color:var(--paper);}
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(245,240,228,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;gap:24px;
+  }
+  .logo{
+    display:flex;flex-direction:column;line-height:1.1;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:1.35rem;letter-spacing:0.04em;
+  }
+  .logo-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:500;margin-top:2px;
+  }
+  .nav-links{display:flex;gap:28px;align-items:center;}
+  .nav-links a{
+    font-size:0.92rem;color:var(--ink);position:relative;
+    padding-bottom:2px;
+  }
+  .nav-links a:hover{color:var(--stamp);}
+  .nav-call{flex-shrink:0;}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:clamp(56px,9vw,100px) 0 clamp(70px,10vw,120px);}
+  .hero-inner{
+    display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center;
+  }
+  .hero-copy h1{
+    font-size:clamp(2.4rem,5.2vw,3.6rem);
+    line-height:1.08;
+    margin-bottom:20px;
+  }
+  .hero-copy .eyebrow{margin-bottom:18px;}
+  .hero-copy .lede{margin:18px 0 32px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+
+  /* ---------- Receipt (signature element) ---------- */
+  .hero-receipt{
+    position:relative;
+    max-width:400px;
+    margin:0 auto;
+    padding-bottom:40px;
+  }
+  .receipt{
+    position:relative;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:30px 26px 26px;
+    box-shadow:0 24px 50px -28px rgba(26,27,20,0.35);
+  }
+  .receipt::before, .receipt::after{
+    content:"";
+    position:absolute;left:0;right:0;height:12px;
+    background-image:
+      linear-gradient(-45deg, transparent 6px, var(--paper) 6px),
+      linear-gradient(45deg, transparent 6px, var(--paper) 6px);
+    background-size:12px 12px;
+    background-repeat:repeat-x;
+    background-position:0 0, 6px 0;
+  }
+  .receipt::before{top:-1px;}
+  .receipt::after{bottom:-1px;transform:rotate(180deg);}
+  .receipt-head{margin-bottom:14px;}
+  .receipt-brand{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:1.5rem;letter-spacing:0.06em;
+  }
+  .receipt-sub{
+    font-family:'IBM Plex Mono',monospace;font-size:0.74rem;
+    letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);
+    margin-top:4px;
+  }
+  .receipt-line{border-top:1px dashed var(--line-strong);margin:16px 0;}
+  .receipt-items li{
+    display:grid;grid-template-columns:26px 1fr 20px;
+    align-items:baseline;gap:10px;
+    font-family:'IBM Plex Mono',monospace;font-size:0.85rem;
+    padding:6px 0;
+  }
+  .receipt-items .num{color:var(--ink-soft);}
+  .receipt-items .check{color:var(--teal);text-align:right;font-weight:600;}
+  .receipt-foot{
+    font-family:'IBM Plex Mono',monospace;font-size:0.74rem;
+    color:var(--ink-soft);letter-spacing:0.03em;margin-top:6px;
+  }
+  .stamp{
+    position:absolute;
+    right:-28px;bottom:8px;
+    width:150px;height:150px;
+    color:var(--stamp);
+    opacity:0.85;
+    transform:rotate(-11deg);
+    mix-blend-mode:multiply;
+    pointer-events:none;
+  }
+  .stamp svg{width:100%;height:100%;}
+
+  /* ---------- Pillars ---------- */
+  .pillars h2{font-size:clamp(1.9rem,4vw,2.6rem);max-width:18ch;margin-bottom:48px;}
+  .pillar-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:28px;
+  }
+  .pillar-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px;
+  }
+  .pillar-icon{
+    width:48px;height:48px;
+    display:flex;align-items:center;justify-content:center;
+    border:1.5px solid var(--line-strong);border-radius:10px;
+    color:var(--stamp);margin-bottom:20px;
+  }
+  .pillar-icon svg{width:26px;height:26px;}
+  .pillar-card h3{font-size:1.3rem;margin-bottom:10px;}
+  .pillar-card p{color:var(--ink-soft);margin-bottom:18px;}
+  .tick-list li{
+    display:flex;gap:10px;align-items:flex-start;
+    font-size:0.92rem;padding:6px 0;
+    border-top:1px solid var(--line);
+  }
+  .tick-list li:first-child{border-top:none;}
+  .tick-list li::before{
+    content:"";flex-shrink:0;margin-top:7px;
+    width:7px;height:7px;border-radius:50%;
+    background:var(--teal);
+  }
+
+  /* ---------- Why (dark section) ---------- */
+  .why{background:var(--ink-deep);}
+  .why .eyebrow{color:#E7A53D;}
+  .why h2{color:var(--paper);font-size:clamp(1.9rem,4vw,2.6rem);max-width:22ch;margin-bottom:48px;}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .why-card{
+    border:1px solid rgba(245,240,228,0.14);
+    border-radius:var(--radius);
+    padding:26px 22px;
+  }
+  .why-icon{
+    width:42px;height:42px;color:#E7A53D;margin-bottom:18px;
+  }
+  .why-icon svg{width:100%;height:100%;}
+  .why-card h3{color:var(--paper);font-size:1.05rem;margin-bottom:8px;}
+  .why-card p{color:rgba(245,240,228,0.62);font-size:0.92rem;}
+
+  /* ---------- Products ---------- */
+  .products h2{font-size:clamp(1.9rem,4vw,2.6rem);max-width:20ch;margin-bottom:48px;}
+  .product-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+  }
+  .product-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:26px;
+  }
+  .product-icon{
+    width:40px;height:40px;color:var(--teal);margin-bottom:16px;
+  }
+  .product-icon svg{width:100%;height:100%;}
+  .product-card h3{font-size:1.05rem;margin-bottom:8px;}
+  .product-card p{color:var(--ink-soft);font-size:0.92rem;}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--paper-2);}
+  .contact-inner{
+    display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;
+  }
+  .contact h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:14px;}
+  .contact .lede{margin-bottom:28px;}
+  .phone-link{
+    display:inline-block;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:clamp(1.7rem,4vw,2.4rem);
+    letter-spacing:0.02em;
+    color:var(--ink);
+    border-bottom:2px solid var(--stamp);
+    padding-bottom:4px;margin-bottom:24px;
+  }
+  .phone-link:hover{color:var(--stamp);}
+  .contact-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .contact-note{
+    margin-top:22px;font-size:0.85rem;color:var(--ink-soft);
+    font-family:'IBM Plex Mono',monospace;
+  }
+  .contact-stamp{
+    display:flex;justify-content:center;
+    color:var(--stamp);opacity:0.18;
+  }
+  .contact-stamp svg{width:220px;height:220px;}
+
+  /* ---------- Footer ---------- */
+  .footer{background:var(--ink-deep);padding:48px 0;}
+  .footer-inner{
+    display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;
+  }
+  .footer-logo{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:1.2rem;color:var(--paper);letter-spacing:0.06em;
+  }
+  .footer-mid{color:rgba(245,240,228,0.55);font-size:0.88rem;}
+  .footer-call a{
+    font-family:'IBM Plex Mono',monospace;color:var(--paper);
+    border-bottom:1px solid rgba(245,240,228,0.3);
+  }
+  .footer-call a:hover{color:#E7A53D;border-color:#E7A53D;}
+  .copyright{
+    width:100%;text-align:center;margin-top:24px;
+    font-family:'IBM Plex Mono',monospace;font-size:0.74rem;
+    color:rgba(245,240,228,0.35);
+  }
+
+  /* ---------- Chat widget ---------- */
+  .chat-widget{position:fixed;right:20px;bottom:20px;z-index:100;}
+  .chat-toggle{
+    display:flex;align-items:center;gap:10px;
+    background:var(--ink-deep);color:var(--paper);
+    border:none;border-radius:999px;
+    padding:14px 20px;
+    font-family:'IBM Plex Mono',monospace;font-size:0.85rem;letter-spacing:0.04em;
+    cursor:pointer;box-shadow:0 16px 32px -16px rgba(0,0,0,0.5);
+    transition:transform .15s ease;
+  }
+  .chat-toggle:hover{transform:translateY(-2px);}
+  .chat-toggle svg{width:18px;height:18px;color:#E7A53D;}
+  .chat-panel{
+    position:absolute;right:0;bottom:calc(100% + 12px);
+    width:min(360px,calc(100vw - 40px));
+    height:min(480px,calc(100vh - 140px));
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:0 30px 60px -24px rgba(26,27,20,0.4);
+    display:flex;flex-direction:column;
+    overflow:hidden;
+    opacity:0;visibility:hidden;transform:translateY(12px) scale(0.98);
+    transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  }
+  .chat-panel.open{opacity:1;visibility:visible;transform:translateY(0) scale(1);}
+  .chat-header{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    padding:18px 20px;background:var(--ink-deep);color:var(--paper);
+  }
+  .chat-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;}
+  .chat-sub{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:rgba(245,240,228,0.55);margin-top:4px;}
+  .chat-close{
+    background:none;border:none;color:var(--paper);font-size:1.1rem;
+    cursor:pointer;line-height:1;padding:2px;
+  }
+  .chat-messages{
+    flex:1;overflow-y:auto;padding:16px 18px;
+    display:flex;flex-direction:column;gap:10px;
+    background:var(--paper);
+  }
+  .msg{
+    max-width:85%;padding:10px 13px;border-radius:10px;
+    font-size:0.9rem;line-height:1.5;white-space:pre-wrap;
+  }
+  .msg-bot{
+    align-self:flex-start;background:var(--white);
+    border:1px solid var(--line);border-bottom-left-radius:2px;
+  }
+  .msg-user{
+    align-self:flex-end;background:var(--ink-deep);color:var(--paper);
+    border-bottom-right-radius:2px;
+  }
+  .msg-typing{display:flex;gap:4px;align-items:center;padding:13px;}
+  .msg-typing span{
+    width:6px;height:6px;border-radius:50%;background:var(--ink-soft);
+    animation:typingBounce 1.2s infinite ease-in-out;
+  }
+  .msg-typing span:nth-child(2){animation-delay:.15s;}
+  .msg-typing span:nth-child(3){animation-delay:.3s;}
+  @keyframes typingBounce{0%,80%,100%{transform:translateY(0);opacity:.4;}40%{transform:translateY(-4px);opacity:1;}}
+
+  .chat-quick{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 12px;background:var(--paper);}
+  .chip{
+    font-family:'IBM Plex Mono',monospace;font-size:0.74rem;
+    background:var(--white);border:1px solid var(--line-strong);
+    border-radius:999px;padding:7px 12px;cursor:pointer;color:var(--ink);
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .chip:hover{border-color:var(--stamp);color:var(--stamp);}
+  .chat-input-row{
+    display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:var(--white);
+  }
+  .chat-input-row input{
+    flex:1;border:1px solid var(--line-strong);border-radius:999px;
+    padding:10px 16px;font-family:'Inter',sans-serif;font-size:0.9rem;
+    background:var(--paper);color:var(--ink);
+  }
+  .chat-input-row input:focus{outline:none;border-color:var(--teal);}
+  .chat-send{
+    width:40px;height:40px;border-radius:50%;border:none;
+    background:var(--stamp);color:var(--white);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+    flex-shrink:0;
+  }
+  .chat-send svg{width:17px;height:17px;}
+  .chat-send:disabled{opacity:0.5;cursor:not-allowed;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .nav-links{display:none;}
+    .hero-inner{grid-template-columns:1fr;gap:48px;}
+    .hero-receipt{max-width:380px;}
+    .pillar-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .product-grid{grid-template-columns:repeat(2,1fr);}
+    .contact-inner{grid-template-columns:1fr;}
+    .contact-stamp{order:-1;}
+    .contact-stamp svg{width:140px;height:140px;}
+  }
+  @media (max-width:560px){
+    .why-grid{grid-template-columns:1fr;}
+    .product-grid{grid-template-columns:1fr;}
+    .stamp{width:110px;height:110px;right:-14px;bottom:-6px;}
+    .hero-receipt{padding-bottom:30px;}
+    .chat-panel{height:min(70vh,520px);}
+  }
+
+  /* ---------- Section image ---------- */
+  .section-figure{
+    border-radius:var(--radius);
+    overflow:hidden;
+    border:1px solid var(--line);
+    margin:0 0 32px;
+    background:var(--white);
+  }
+  .section-figure img{width:100%;height:100%;object-fit:cover;display:block;}
+
+  /* ---------- MARG pricing table ---------- */
+  .marg-detail{margin-top:18px;}
+  .marg-table-wrap{
+    overflow-x:auto;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:var(--white);
+  }
+  .marg-table{width:100%;border-collapse:collapse;font-size:0.92rem;min-width:560px;}
+  .marg-table th,.marg-table td{
+    text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);
+  }
+  .marg-table th{
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;
+    letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);
+    background:var(--paper-2);
+  }
+  .marg-table tr:last-child td{border-bottom:none;}
+  .marg-table td.price{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--teal);
+    white-space:nowrap;
+  }
+  .marg-table td .plan-name{font-weight:600;display:block;margin-bottom:2px;}
+  .marg-table td .plan-sub{color:var(--ink-soft);font-size:0.85rem;}
+  .marg-note{
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--ink-soft);
+    margin-top:14px;
+  }
+
+  /* ---------- Website service section ---------- */
+  .websites{background:var(--paper-2);}
+  .websites h2{font-size:clamp(1.9rem,4vw,2.6rem);max-width:22ch;margin-bottom:18px;}
+  .websites-intro{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;margin-bottom:48px;}
+  .web-tick .tick-list li{border-top:1px solid var(--line-strong);}
+  .web-tick .tick-list li:first-child{border-top:none;}
+
+  .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .tier-card{
+    background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px 26px;display:flex;flex-direction:column;
+  }
+  .tier-card.featured{border-color:var(--stamp);box-shadow:0 20px 40px -28px rgba(193,68,45,0.35);position:relative;}
+  .tier-badge{
+    position:absolute;top:-12px;right:24px;
+    background:var(--stamp);color:var(--white);
+    font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;
+    padding:5px 12px;border-radius:999px;
+  }
+  .tier-name{font-family:'IBM Plex Mono',monospace;font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--stamp);margin-bottom:8px;}
+  .tier-price{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2rem;margin-bottom:2px;}
+  .tier-price span{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;font-weight:500;color:var(--ink-soft);}
+  .tier-for{color:var(--ink-soft);font-size:0.88rem;margin-bottom:18px;}
+  .tier-list{margin-bottom:22px;flex-grow:1;}
+  .tier-list li{
+    display:flex;gap:10px;align-items:flex-start;
+    font-size:0.9rem;padding:7px 0;
+  }
+  .tier-list li::before{
+    content:"✓";flex-shrink:0;color:var(--teal);font-weight:600;
+    font-family:'IBM Plex Mono',monospace;
+  }
+
+  .maintenance-block{
+    margin-top:40px;background:var(--white);border:1px solid var(--line);
+    border-radius:var(--radius);padding:32px;
+    display:grid;grid-template-columns:1fr 1fr;gap:32px;
+  }
+  .maintenance-block h3{font-size:1.3rem;margin-bottom:10px;}
+  .maint-table{width:100%;border-collapse:collapse;font-size:0.9rem;}
+  .maint-table td{padding:9px 0;border-bottom:1px solid var(--line);}
+  .maint-table tr:last-child td{border-bottom:none;}
+  .maint-table td:last-child{
+    text-align:right;font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--teal);white-space:nowrap;
+  }
+
+  /* ---------- Scroll reveal animations ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  .reveal-stagger > *{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal-stagger.is-visible > *{opacity:1;transform:translateY(0);}
+  .reveal-stagger.is-visible > *:nth-child(1){transition-delay:0s;}
+  .reveal-stagger.is-visible > *:nth-child(2){transition-delay:.08s;}
+  .reveal-stagger.is-visible > *:nth-child(3){transition-delay:.16s;}
+  .reveal-stagger.is-visible > *:nth-child(4){transition-delay:.24s;}
+  .reveal-stagger.is-visible > *:nth-child(5){transition-delay:.32s;}
+  .reveal-stagger.is-visible > *:nth-child(6){transition-delay:.4s;}
+
+  /* ---------- Floating / hover motion ---------- */
+  .stamp{animation:float 6s ease-in-out infinite;}
+  @keyframes float{
+    0%,100%{transform:rotate(-11deg) translateY(0);}
+    50%{transform:rotate(-11deg) translateY(-10px);}
+  }
+  .pillar-card, .product-card, .why-card, .tier-card{
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .pillar-card:hover, .product-card:hover, .why-card:hover, .tier-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 22px 44px -28px rgba(26,27,20,0.28);
+  }
+
+  /* ---------- Image marquee ---------- */
+  .marquee{
+    overflow:hidden;
+    width:100%;
+    padding:36px 0 0;
+  }
+  .marquee-track{
+    display:flex;
+    gap:20px;
+    width:max-content;
+    animation:marqueeScroll 40s linear infinite;
+  }
+  .marquee:hover .marquee-track{animation-play-state:paused;}
+  .marquee-track img{
+    height:220px;width:320px;
+    object-fit:cover;
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+    flex-shrink:0;
+  }
+  @keyframes marqueeScroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  .marquee-caption{
+    font-family:'IBM Plex Mono',monospace;font-size:0.74rem;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--ink-soft);text-align:center;margin-top:18px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal, .reveal-stagger > *{opacity:1 !important;transform:none !important;}
+    .marquee-track{animation:none !important;}
+    .stamp{animation:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="logo">LEIKOL<span class="logo-tag">Electronics · MARG ERP Dealer</span></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#electronics">Electronics</a>
+      <a href="#marg">MARG ERP</a>
+      <a href="#websites">Websites</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-primary nav-call" href="tel:+919856210010">Call +91 98562 10010</a>
+  </div>
+</header>
+
+<!-- ---------- HERO ---------- -->
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">Imphal, Manipur — Authorized MARG ERP Dealer</p>
+      <h1>Hardware that runs.<br>Software that adds up.</h1>
+      <p class="lede">Leikol supplies laptops, printers, networking gear and computer accessories across Manipur — and as an authorized MARG ERP dealer, we license, install and support the billing and inventory software that keeps pharmacies, retailers and distributors running.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="tel:+919856210010">Call Now</a>
+        <a class="btn btn-outline" href="https://wa.me/919856210010" target="_blank" rel="noopener">WhatsApp Us</a>
+      </div>
+    </div>
+
+    <div class="hero-receipt">
+      <div class="receipt">
+        <div class="receipt-head">
+          <p class="receipt-brand">LEIKOL</p>
+          <p class="receipt-sub">Imphal · Manipur</p>
+          <p class="receipt-sub">Counter — What We Handle</p>
+        </div>
+        <div class="receipt-line"></div>
+        <ul class="receipt-items">
+          <li><span class="num">01</span><span>Laptops &amp; Desktops</span><span class="check">✓</span></li>
+          <li><span class="num">02</span><span>Printers, Scanners &amp; Toner</span><span class="check">✓</span></li>
+          <li><span class="num">03</span><span>Networking &amp; Accessories</span><span class="check">✓</span></li>
+          <li><span class="num">04</span><span>MARG ERP — New License</span><span class="check">✓</span></li>
+          <li><span class="num">05</span><span>MARG ERP — AMC &amp; Renewal</span><span class="check">✓</span></li>
+          <li><span class="num">06</span><span>Installation &amp; Training</span><span class="check">✓</span></li>
+        </ul>
+        <div class="receipt-line"></div>
+        <p class="receipt-foot">Call / WhatsApp +91 98562 10010 for pricing &amp; stock</p>
+
+        <div class="stamp" aria-hidden="true">
+          <svg viewBox="0 0 220 220">
+            <defs>
+              <path id="stampPath" d="M 110,110 m -90,0 a 90,90 0 1 1 180,0 a 90,90 0 1 1 -180,0"/>
+            </defs>
+            <circle cx="110" cy="110" r="104" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="110" cy="110" r="76" fill="none" stroke="currentColor" stroke-width="2"/>
+            <text font-family="'IBM Plex Mono', monospace" font-size="12" letter-spacing="3" fill="currentColor">
+              <textPath href="#stampPath" startOffset="3%">★ AUTHORIZED MARG ERP DEALER ★ MANIPUR </textPath>
+            </text>
+            <text x="110" y="104" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="30" font-weight="700" fill="currentColor">LEIKOL</text>
+            <text x="110" y="128" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="11" letter-spacing="3" fill="currentColor">IMPHAL</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- IMAGE MARQUEE ---------- -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <img src="https://images.unsplash.com/photo-1598091383021-15ddea10925d?w=640&q=80" alt="Ima Keithel women's market, Imphal">
+    <img src="https://images.unsplash.com/photo-1591018533731-573edaae44e4?w=640&q=80" alt="Loktak Lake, Manipur">
+    <img src="https://images.unsplash.com/photo-1601921758607-4d6a6b8b5e1d?w=640&q=80" alt="Manipuri street market">
+    <img src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?w=640&q=80" alt="Hills and green valley, Northeast India">
+    <img src="https://images.unsplash.com/photo-1609920658906-8223bd289001?w=640&q=80" alt="Local shop counter, India">
+    <img src="https://images.unsplash.com/photo-1598091383021-15ddea10925d?w=640&q=80" alt="Ima Keithel women's market, Imphal">
+    <img src="https://images.unsplash.com/photo-1591018533731-573edaae44e4?w=640&q=80" alt="Loktak Lake, Manipur">
+    <img src="https://images.unsplash.com/photo-1601921758607-4d6a6b8b5e1d?w=640&q=80" alt="Manipuri street market">
+    <img src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?w=640&q=80" alt="Hills and green valley, Northeast India">
+    <img src="https://images.unsplash.com/photo-1609920658906-8223bd289001?w=640&q=80" alt="Local shop counter, India">
+  </div>
+  <p class="marquee-caption">Proudly serving shops across Imphal &amp; Manipur</p>
+</div>
+
+<!-- ---------- PILLARS ---------- -->
+<section class="section pillars" id="electronics">
+  <div class="container">
+    <p class="eyebrow">What we do</p>
+    <h2>Two businesses. One counter.</h2>
+    <div class="pillar-grid reveal-stagger">
+
+      <article class="pillar-card">
+        <div class="pillar-icon" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="5" width="20" height="13" rx="1.5"/>
+            <path d="M2 22h24"/>
+            <path d="M11 22l1-3h4l1 3"/>
+          </svg>
+        </div>
+        <h3>Electronics Retail &amp; Service</h3>
+        <p>Genuine laptops, desktops, printers, scanners and networking gear — backed by setup, repair and after-sales support from a counter you can walk into.</p>
+        <ul class="tick-list">
+          <li>Laptops &amp; desktops, all major brands</li>
+          <li>Printers, scanners &amp; toner / cartridge refills</li>
+          <li>Routers, switches &amp; networking accessories</li>
+          <li>Computer accessories &amp; peripherals</li>
+          <li>Repairs, upgrades &amp; on-site service</li>
+        </ul>
+      </article>
+
+      <article class="pillar-card" id="marg">
+        <div class="pillar-icon" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="22" height="22" rx="2"/>
+            <path d="M9 18v-4M14 18v-8M19 18v-2"/>
+          </svg>
+        </div>
+        <h3>MARG ERP — Software &amp; Support</h3>
+        <p>Leikol is among the top MARG ERP dealers in Manipur, supplying licensed billing, accounting and inventory software for pharmacies, retail shops, wholesalers and distributors.</p>
+        <ul class="tick-list">
+          <li>New MARG ERP licenses — Retail, Pharma &amp; Distribution editions</li>
+          <li>Installation, activation &amp; data setup</li>
+          <li>Staff training on billing &amp; inventory</li>
+          <li>Annual Maintenance Contracts (AMC)</li>
+          <li>Updates, troubleshooting &amp; renewals</li>
+        </ul>
+
+        <div class="section-figure">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&q=80" alt="Retail billing counter running MARG ERP software" loading="lazy">
+        </div>
+
+        <div class="marg-detail reveal">
+          <p style="margin-bottom:14px;">MARG ERP comes in editions built for different trades — Leikol helps you pick the right one, then handles activation, GST setup, opening stock entry and staff training on-site.</p>
+          <div class="marg-table-wrap">
+            <table class="marg-table">
+              <thead>
+                <tr><th>Edition</th><th>Best for</th><th>Starting price*</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="plan-name">MARG Retail (Silver)</span><span class="plan-sub">Single-user billing &amp; inventory</span></td>
+                  <td>Small shops, single counter, single GST</td>
+                  <td class="price">₹ 6,000 – 9,000 /yr</td>
+                </tr>
+                <tr>
+                  <td><span class="plan-name">MARG Retail (Gold)</span><span class="plan-sub">Multi-user, multi-godown</span></td>
+                  <td>Growing retail outlets, multiple counters</td>
+                  <td class="price">₹ 12,000 – 18,000 /yr</td>
+                </tr>
+                <tr>
+                  <td><span class="plan-name">MARG Pharmacy</span><span class="plan-sub">Batch, expiry &amp; schedule drug tracking</span></td>
+                  <td>Pharmacies, medical stores, drug distributors</td>
+                  <td class="price">₹ 10,000 – 16,000 /yr</td>
+                </tr>
+                <tr>
+                  <td><span class="plan-name">MARG Distribution</span><span class="plan-sub">Multi-branch, sales force, advanced reports</span></td>
+                  <td>Wholesalers &amp; distribution houses</td>
+                  <td class="price">₹ 20,000 – 35,000 /yr</td>
+                </tr>
+                <tr>
+                  <td><span class="plan-name">AMC / Renewal</span><span class="plan-sub">Updates, support &amp; license renewal</span></td>
+                  <td>Existing MARG users</td>
+                  <td class="price">From ₹ 3,500 /yr</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="marg-note">*Indicative starting prices in INR — final cost depends on number of users, modules (GST, e-Way Bill, e-Invoicing, multi-branch) and your edition's licensing terms. Call or WhatsApp +91 98562 10010 for an exact quote and on-site demo.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ---------- WHY LEIKOL ---------- -->
+<section class="section why" id="why">
+  <div class="container">
+    <p class="eyebrow">Why Leikol</p>
+    <h2>One call covers the shop and the software.</h2>
+    <div class="why-grid reveal-stagger">
+
+      <div class="why-card">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 3l9 4v6c0 6-4 10-9 12-5-2-9-6-9-12V7z"/>
+            <path d="M10 14l3 3 5-6"/>
+          </svg>
+        </div>
+        <h3>Genuine, licensed software</h3>
+        <p>Every MARG ERP install is a real, registered license — no pirated copies, no surprises later.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 25s9-8.5 9-14a9 9 0 1 0-18 0c0 5.5 9 14 9 14z"/>
+            <circle cx="14" cy="11" r="3"/>
+          </svg>
+        </div>
+        <h3>Statewide on-site setup</h3>
+        <p>We come to your shop anywhere in Manipur to install, configure and train your staff.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 15a9 9 0 0 1 18 0v6"/>
+            <rect x="3" y="15" width="5" height="7" rx="1.5"/>
+            <rect x="20" y="15" width="5" height="7" rx="1.5"/>
+            <path d="M23 22a4 4 0 0 1-4 4h-3"/>
+          </svg>
+        </div>
+        <h3>Real local support</h3>
+        <p>Call us and talk to someone who knows Manipur's shops — not a distant call centre.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 3l11 6-11 6-11-6 11-6z"/>
+            <path d="M3 14l11 6 11-6"/>
+            <path d="M3 19l11 6 11-6"/>
+          </svg>
+        </div>
+        <h3>One vendor, full stack</h3>
+        <p>Buy the laptop or printer and the software that runs your billing from the same place.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ---------- PRODUCT RANGE ---------- -->
+<section class="section products">
+  <div class="container">
+    <p class="eyebrow">Product range</p>
+    <h2>From the till to the back office.</h2>
+    <div class="product-grid reveal-stagger">
+
+      <div class="product-card">
+        <div class="product-icon" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="5" width="20" height="13" rx="1.5"/><path d="M2 22h24"/><path d="M11 22l1-3h4l1 3"/>
+          </svg>
+        </div>
+        <h3>Laptops &amp; Desktops</h3>
+        <p>New and reliable machines for offices, shops and students.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 9V4h14v5"/><rect x="4" y="9" width="20" height="9" rx="1.5"/><rect x="8" y="17" width="12" height="7"/>
+          </svg>
+        </div>
+        <h3>Printers &amp; Cartridges</h3>
+        <p>Inkjet, laser and thermal printers, with toner and cartridge refills.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="16" width="20" height="6" rx="1.5"/><path d="M9 16v-2a5 5 0 0 1 10 0v2"/>
+            <circle cx="9" cy="19" r="0.6" fill="currentColor"/><circle cx="14" cy="19" r="0.6" fill="currentColor"/>
+          </svg>
+        </div>
+        <h3>Networking Equipment</h3>
+        <p>Routers, switches, cables and Wi-Fi gear to keep you connected.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="22" height="22" rx="2"/><path d="M9 18v-4M14 18v-8M19 18v-2"/>
+          </svg>
+        </div>
+        <h3>MARG ERP Software</h3>
+        <p>Retail, Pharmacy &amp; Distribution editions — licensed and supported.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="6" width="22" height="16" rx="1.5"/>
+            <path d="M7 10v8M10 10v8M14 10v8M17 10v8M21 10v8" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <h3>POS &amp; Billing Hardware</h3>
+        <p>Barcode scanners, thermal bill printers and cash drawers.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 14a9 9 0 0 1 18 0"/><rect x="3" y="14" width="5" height="7" rx="1.5"/><rect x="20" y="14" width="5" height="7" rx="1.5"/>
+          </svg>
+        </div>
+        <h3>Accessories &amp; Peripherals</h3>
+        <p>Keyboards, mice, UPS units, storage drives and more.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ---------- WEBSITE CREATION & MAINTENANCE ---------- -->
+<section class="section websites" id="websites">
+  <div class="container">
+    <p class="eyebrow">Now offering</p>
+    <h2>Get your shop online — websites built and maintained by Leikol.</h2>
+
+    <div class="websites-intro reveal">
+      <div>
+        <p class="lede" style="margin-bottom:18px;">From a simple one-page shop profile to a full online catalogue, Leikol now designs, builds and maintains websites for businesses across Manipur — so customers can find you, message you and see what you sell, even when your shop is closed.</p>
+        <ul class="tick-list web-tick">
+          <li>Custom design — no generic templates left unedited</li>
+          <li>Mobile-friendly, fast-loading pages</li>
+          <li>Google Maps location &amp; WhatsApp click-to-chat</li>
+          <li>Domain &amp; hosting setup assistance</li>
+          <li>Ongoing maintenance, updates &amp; backups</li>
+        </ul>
+      </div>
+      <div class="section-figure" style="margin:0;">
+        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80" alt="Website design layout on a laptop screen" loading="lazy">
+      </div>
+    </div>
+
+    <div class="tier-grid reveal-stagger">
+
+      <div class="tier-card">
+        <p class="tier-name">Starter</p>
+        <p class="tier-price">₹ 3,499 <span>one-time</span></p>
+        <p class="tier-for">For a simple online presence</p>
+        <ul class="tier-list">
+          <li>1–3 page website (Home, About, Contact)</li>
+          <li>Mobile-responsive design</li>
+          <li>Business details, photos &amp; map</li>
+          <li>WhatsApp / call-now buttons</li>
+          <li>Basic on-page SEO setup</li>
+        </ul>
+        <a class="btn btn-outline" href="tel:+919856210010">Enquire</a>
+      </div>
+
+      <div class="tier-card featured">
+        <span class="tier-badge">Most popular</span>
+        <p class="tier-name">Business</p>
+        <p class="tier-price">₹ 10,499 <span>one-time</span></p>
+        <p class="tier-for">For shops &amp; service businesses</p>
+        <ul class="tier-list">
+          <li>Up to 6 pages (incl. Products / Services, Gallery)</li>
+          <li>Custom design matched to your brand</li>
+          <li>Product / service listing with images</li>
+          <li>Contact form &amp; AI chat assistant</li>
+          <li>Domain &amp; hosting setup assistance</li>
+          <li>1 month free support after launch</li>
+        </ul>
+        <a class="btn btn-primary" href="tel:+919856210010">Enquire</a>
+      </div>
+
+      <div class="tier-card">
+        <p class="tier-name">E-Commerce</p>
+        <p class="tier-price">From ₹ 23,499 <span>one-time</span></p>
+        <p class="tier-for">For online stores &amp; catalogues</p>
+        <ul class="tier-list">
+          <li>Full online catalogue with categories</li>
+          <li>Cart, enquiry &amp; order-via-WhatsApp flow</li>
+          <li>Admin panel to add/edit products</li>
+          <li>Payment gateway setup (optional)</li>
+          <li>SEO, analytics &amp; speed optimisation</li>
+          <li>Priority support during launch</li>
+        </ul>
+        <a class="btn btn-outline" href="tel:+919856210010">Enquire</a>
+      </div>
+
+    </div>
+
+    <div class="maintenance-block reveal">
+      <div>
+        <h3>Website Maintenance Plans</h3>
+        <p class="lede" style="margin-bottom:14px;">Once your site is live, our maintenance plans keep it updated, secure and online — content changes, new photos, price updates, security patches and uptime monitoring, handled for you.</p>
+        <p class="marg-note" style="margin-top:0;">All plans include hosting &amp; domain renewal reminders. Custom plans available for larger sites — call to discuss.</p>
+      </div>
+      <div>
+        <table class="maint-table">
+          <tbody>
+            <tr><td><span class="plan-name">Basic</span><span class="plan-sub">Uptime monitoring, security updates, up to 2 content edits / month</span></td><td>₹ 999 /mo</td></tr>
+            <tr><td><span class="plan-name">Standard</span><span class="plan-sub">Everything in Basic + up to 6 edits/month, new photos, backups</span></td><td>₹ 1,999 /mo</td></tr>
+            <tr><td><span class="plan-name">Premium</span><span class="plan-sub">Unlimited minor edits, monthly performance &amp; SEO check, priority support</span></td><td>₹ 3,499 /mo</td></tr>
+            <tr><td><span class="plan-name">One-off fix / update</span><span class="plan-sub">No ongoing plan — pay per request</span></td><td>From ₹ 499</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ---------- CONTACT ---------- -->
+<section class="section contact" id="contact">
+  <div class="container contact-inner reveal">
+    <div>
+      <p class="eyebrow">Get in touch</p>
+      <h2>Talk to Leikol</h2>
+      <p class="lede">Whether you're buying a laptop, setting up MARG ERP for your pharmacy, or need support on an existing install — call or WhatsApp us. We're based in Imphal and serve shops across Manipur.</p>
+      <a class="phone-link" href="tel:+919856210010">+91 98562 10010</a>
+      <div class="contact-ctas">
+        <a class="btn btn-primary" href="tel:+919856210010">Call Now</a>
+        <a class="btn btn-outline" href="https://wa.me/919856210010" target="_blank" rel="noopener">Message on WhatsApp</a>
+      </div>
+      <p class="contact-note">Imphal, Manipur · Replace this line with your shop address &amp; hours</p>
+    </div>
+    <div class="contact-stamp" aria-hidden="true">
+      <svg viewBox="0 0 220 220">
+        <defs>
+          <path id="stampPath2" d="M 110,110 m -90,0 a 90,90 0 1 1 180,0 a 90,90 0 1 1 -180,0"/>
+        </defs>
+        <circle cx="110" cy="110" r="104" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="110" cy="110" r="76" fill="none" stroke="currentColor" stroke-width="2"/>
+        <text font-family="'IBM Plex Mono', monospace" font-size="12" letter-spacing="3" fill="currentColor">
+          <textPath href="#stampPath2" startOffset="3%">★ AUTHORIZED MARG ERP DEALER ★ MANIPUR </textPath>
+        </text>
+        <text x="110" y="104" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="30" font-weight="700" fill="currentColor">LEIKOL</text>
+        <text x="110" y="128" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="11" letter-spacing="3" fill="currentColor">IMPHAL</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- FOOTER ---------- -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <p class="footer-logo">LEIKOL</p>
+    <p class="footer-mid">Electronics &amp; Authorized MARG ERP Dealer — Imphal, Manipur</p>
+    <p class="footer-call">Call / WhatsApp: <a href="tel:+919856210010">+91 98562 10010</a></p>
+    <p class="copyright">© <span id="year"></span> Leikol. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ---------- CHAT WIDGET ---------- -->
+<div class="chat-widget">
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div>
+        <p class="chat-title">Leikol Assistant</p>
+        <p class="chat-sub">Ask about products, pricing &amp; MARG ERP</p>
+      </div>
+      <button class="chat-close" id="chatClose" aria-label="Close chat">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg msg-bot">Namaskar! I'm the Leikol assistant. Ask me about our laptops, printers, networking gear or MARG ERP software — or call/WhatsApp us anytime at +91 98562 10010.</div>
+    </div>
+    <div class="chat-quick" id="chatQuick">
+      <button class="chip" type="button">What is MARG ERP?</button>
+      <button class="chip" type="button">Do you build websites?</button>
+      <button class="chip" type="button">Do you sell laptops &amp; printers?</button>
+      <button class="chip" type="button">Where are you located?</button>
+      <button class="chip" type="button">Your contact number?</button>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Type your question…" autocomplete="off" aria-label="Type your question">
+      <button class="chat-send" id="chatSend" aria-label="Send message" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <button class="chat-toggle" id="chatToggle" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 11.5a8.38 8.38 0 0 1-1.9 5.4 8.5 8.5 0 0 1-9.9 2.3L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"/>
+    </svg>
+    Ask Leikol
+  </button>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll-reveal animations
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => revealObserver.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
+
+
+  const SYSTEM_PROMPT = "You are the customer-facing assistant on Leikol's website. Leikol is an electronics retailer and the authorized MARG ERP software dealer based in Imphal, Manipur, India -- one of the top MARG dealers in the state. Leikol sells laptops, desktops, printers, scanners, networking equipment (routers/switches), POS and billing hardware (barcode scanners, thermal printers, cash drawers) and computer accessories. As a MARG ERP dealer, Leikol provides new licenses (Retail Silver/Gold, Pharmacy and Distribution editions, roughly Rs 6,000-35,000/year depending on edition) plus installation, data setup, staff training, AMC (from Rs 3,500/year) and ongoing support. Leikol also now offers website design and maintenance: Starter sites from Rs 3,499, Business sites from Rs 10,499 (most popular, includes AI chat assistant), and E-Commerce sites from Rs 23,499, plus monthly maintenance plans (Basic Rs 999, Standard Rs 1,999, Premium Rs 3,499). Answer customer questions about these products and services in a friendly, concise way (2-4 sentences max). You do not have live stock levels or exact prices, so for precise pricing, stock availability, or to place an order, tell the customer to call or WhatsApp Leikol at +91 98562 10010. If asked about anything unrelated to Leikol's business, politely steer back to how you can help with electronics, MARG ERP, or websites, or suggest they call the number above.";
+
+  const messages = [];
+  const chatPanel = document.getElementById('chatPanel');
+  const chatToggle = document.getElementById('chatToggle');
+  const chatClose = document.getElementById('chatClose');
+  const chatMessages = document.getElementById('chatMessages');
+  const chatQuick = document.getElementById('chatQuick');
+  const chatInput = document.getElementById('chatInput');
+  const chatSend = document.getElementById('chatSend');
+
+  chatToggle.addEventListener('click', () => {
+    chatPanel.classList.toggle('open');
+    if (chatPanel.classList.contains('open')) chatInput.focus();
+  });
+  chatClose.addEventListener('click', () => chatPanel.classList.remove('open'));
+
+  function addMessage(role, text) {
+    const div = document.createElement('div');
+    div.className = 'msg ' + (role === 'user' ? 'msg-user' : 'msg-bot');
+    div.textContent = text;
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    return div;
+  }
+
+  function addTyping() {
+    const div = document.createElement('div');
+    div.className = 'msg msg-bot msg-typing';
+    div.innerHTML = '<span></span><span></span><span></span>';
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    return div;
+  }
+
+  function removeTyping(el) {
+    if (el && el.parentNode) el.parentNode.removeChild(el);
+  }
+
+  function setLoading(isLoading) {
+    chatInput.disabled = isLoading;
+    chatSend.disabled = isLoading;
+  }
+
+  async function sendToClaude(userText) {
+    if (chatQuick) chatQuick.style.display = 'none';
+    addMessage('user', userText);
+    messages.push({ role: 'user', content: userText });
+    setLoading(true);
+    const typingEl = addTyping();
+
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 1000,
+          system: SYSTEM_PROMPT,
+          messages: messages
+        })
+      });
+      const data = await res.json();
+      const text = (data.content || [])
+        .filter(b => b.type === 'text')
+        .map(b => b.text)
+        .join('\n')
+        .trim();
+
+      removeTyping(typingEl);
+
+      if (text) {
+        addMessage('bot', text);
+        messages.push({ role: 'assistant', content: text });
+      } else {
+        addMessage('bot', "Sorry, I couldn't find an answer to that. Please call or WhatsApp us at +91 98562 10010.");
+      }
+    } catch (err) {
+      removeTyping(typingEl);
+      addMessage('bot', "I'm having trouble connecting right now. For quick help, call or WhatsApp us at +91 98562 10010.");
+    } finally {
+      setLoading(false);
+      chatInput.focus();
+    }
+  }
+
+  function handleSend() {
+    const text = chatInput.value.trim();
+    if (!text) return;
+    chatInput.value = '';
+    sendToClaude(text);
+  }
+
+  chatSend.addEventListener('click', handleSend);
+  chatInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleSend();
+    }
+  });
+
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => sendToClaude(chip.textContent));
+  });
+</script>
+
+</body>
+</html>
